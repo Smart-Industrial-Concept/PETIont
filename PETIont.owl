@@ -1,0 +1,664 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://auto.tuwien.ac.at/sic/PETIont#"
+     xml:base="http://auto.tuwien.ac.at/sic/PETIont"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:PETIont="http://auto.tuwien.ac.at/sic/PETIont#"
+     xmlns:topology="http://auto.tuwien.ac.at/sic/topology#"
+     xmlns:qudt_v2_1="http://qudt.org/2.1/schema/qudt"
+     xmlns:qudt-unit-v2-1="http://qudt.org/2.1/vocab/unit">
+    <owl:Ontology rdf:about="http://auto.tuwien.ac.at/sic/PETIont"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#belongsToEquipment -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#belongsToEquipment">
+        <owl:inverseOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#hasDynamicModel"/>
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#DynamicModel"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#Equipment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#controlsEquipment -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#controlsEquipment">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#ProcessControlFunction"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#Equipment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasActuator -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasActuator">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#VirtualProperty"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#ProcessControlFunction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasDirectMassFlowFrom -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasDirectMassFlowFrom">
+        <rdfs:subPropertyOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#hasMassFlowFrom"/>
+        <owl:inverseOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#hasDirectMassFlowTo"/>
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#InPort"/>
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#MassFlowPort"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#MassFlowPort"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#OutPort"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasDirectMassFlowTo -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasDirectMassFlowTo">
+        <rdfs:subPropertyOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#hasMassFlowTo"/>
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#MassFlowPort"/>
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#OutPort"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#InPort"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#MassFlowPort"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasDynamicModel -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasDynamicModel">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#Equipment"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#DynamicModel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasEquivalentVirtualProperty -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasEquivalentVirtualProperty">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#VirtualProperty"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#VirtualProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasInPort -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasInPort">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#Equipment"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#InPort"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasInfluenceOn -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasInfluenceOn">
+        <owl:inverseOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#isInfluencedBy"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#DynamicModel"/>
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#VirtualProperty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#DynamicModel"/>
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#VirtualProperty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasInfluenceOnPCERequest -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasInfluenceOnPCERequest">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#SetpointValue"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PCE-Request"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasInternalMassFlowFrom -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasInternalMassFlowFrom">
+        <rdfs:subPropertyOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#hasMassFlowFrom"/>
+        <owl:inverseOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#hasInternalMassFlowTo"/>
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#MassFlowPort"/>
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#OutPort"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#InPort"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#MassFlowPort"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasInternalMassFlowTo -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasInternalMassFlowTo">
+        <rdfs:subPropertyOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#hasMassFlowTo"/>
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#InPort"/>
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#MassFlowPort"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#MassFlowPort"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#OutPort"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasManipulatedVariable -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasManipulatedVariable">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#Equipment"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#ManipulatedVariable"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasMassFlowFrom -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasMassFlowFrom">
+        <owl:inverseOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#hasMassFlowTo"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasMassFlowTo -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasMassFlowTo">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasMeasurement -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasMeasurement">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#VirtualProperty"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#SensorFunction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasOutPort -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasOutPort">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#Equipment"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#OutPort"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasPCERequest -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasPCERequest">
+        <owl:inverseOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#hasProcessConnection"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasPhysicalQuantity -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasPhysicalQuantity">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#PCE-Request"/>
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#VirtualProperty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PhysicalQuantity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasPhysicalUnit -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasPhysicalUnit">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PCE-Request"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PhysicalUnit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasProcessConnection -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasProcessConnection">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#ActuatorFunction"/>
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#SensorFunction"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#ManipulatedVariable"/>
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#Port"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasRelatedPort -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasRelatedPort">
+        <owl:inverseOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#hasRelatedVirtualProperty"/>
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#VirtualProperty"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#Port"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasRelatedVirtualProperty -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasRelatedVirtualProperty">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#Port"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#VirtualProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasSetpoint -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasSetpoint">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#ProcessControlFunction"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#Setpoint"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasSetpointValue -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasSetpointValue">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#ProcessControlFunction"/>
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#Setpoint"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#SetpointValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasSignalFrom -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasSignalFrom">
+        <owl:inverseOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#hasSignalTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasSignalTo -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasSignalTo">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PCE-Element"/>
+        <rdfs:range rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PCE-Element"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#isInfluencedBy -->
+
+    <owl:ObjectProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#isInfluencedBy">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#DynamicModel"/>
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#VirtualProperty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#DynamicModel"/>
+                    <rdf:Description rdf:about="http://auto.tuwien.ac.at/sic/PETIont#VirtualProperty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#belongsToPCECategory -->
+
+    <owl:DatatypeProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#belongsToPCECategory">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PhysicalQuantity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasCategoryCode -->
+
+    <owl:DatatypeProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasCategoryCode">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PCE-Element"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasFunctionCode -->
+
+    <owl:DatatypeProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasFunctionCode">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PCE-Element"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#hasReferenceNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#hasReferenceNumber">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PCE-Element"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#tagID -->
+
+    <owl:DatatypeProperty rdf:about="http://auto.tuwien.ac.at/sic/PETIont#tagID">
+        <rdfs:domain rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#Port"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#ActuatorFunction -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#ActuatorFunction">
+        <rdfs:subClassOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PCE-Request"/>
+    </owl:Class>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#DynamicModel -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#DynamicModel"/>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#ElectricHeater -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#ElectricHeater">
+        <rdfs:subClassOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#ThermalEquipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#Equipment -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#Equipment"/>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#Fan -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#Fan">
+        <rdfs:subClassOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#HydraulicEquipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#GeneralHeatExchanger -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#GeneralHeatExchanger">
+        <rdfs:subClassOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#ThermalEquipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#HydraulicEquipment -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#HydraulicEquipment">
+        <rdfs:subClassOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#Equipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#InPort -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#InPort">
+        <rdfs:subClassOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#Port"/>
+    </owl:Class>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#ManipulatedVariable -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#ManipulatedVariable"/>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#MassFlowPort -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#MassFlowPort">
+        <rdfs:subClassOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#Port"/>
+    </owl:Class>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#OutPort -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#OutPort">
+        <rdfs:subClassOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#Port"/>
+    </owl:Class>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#PCE-Element -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#PCE-Element"/>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#PCE-Request -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#PCE-Request">
+        <rdfs:subClassOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PCE-Element"/>
+    </owl:Class>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#PhysicalQuantity -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#PhysicalQuantity"/>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#PhysicalUnit -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#PhysicalUnit"/>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#Port -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#Port"/>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#ProcessControlFunction -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#ProcessControlFunction">
+        <rdfs:subClassOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PCE-Element"/>
+    </owl:Class>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#SensorFunction -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#SensorFunction">
+        <rdfs:subClassOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PCE-Request"/>
+    </owl:Class>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#Setpoint -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#Setpoint"/>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#SetpointValue -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#SetpointValue"/>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#ThermalEquipment -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#ThermalEquipment">
+        <rdfs:subClassOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#Equipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#Vessel -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#Vessel">
+        <rdfs:subClassOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#HydraulicEquipment"/>
+        <rdfs:subClassOf rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#ThermalEquipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#VirtualProperty -->
+
+    <owl:Class rdf:about="http://auto.tuwien.ac.at/sic/PETIont#VirtualProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#DegreeCelsius -->
+
+    <owl:NamedIndividual rdf:about="http://auto.tuwien.ac.at/sic/PETIont#DegreeCelsius">
+        <rdf:type rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PhysicalUnit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#Kelvin -->
+
+    <owl:NamedIndividual rdf:about="http://auto.tuwien.ac.at/sic/PETIont#Kelvin">
+        <rdf:type rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PhysicalUnit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#KilogramPerSecond -->
+
+    <owl:NamedIndividual rdf:about="http://auto.tuwien.ac.at/sic/PETIont#KilogramPerSecond">
+        <rdf:type rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PhysicalUnit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#Kilowatt -->
+
+    <owl:NamedIndividual rdf:about="http://auto.tuwien.ac.at/sic/PETIont#Kilowatt">
+        <rdf:type rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PhysicalUnit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#MassFlowRate -->
+
+    <owl:NamedIndividual rdf:about="http://auto.tuwien.ac.at/sic/PETIont#MassFlowRate">
+        <rdf:type rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PhysicalQuantity"/>
+        <belongsToPCECategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">F</belongsToPCECategory>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#Percent -->
+
+    <owl:NamedIndividual rdf:about="http://auto.tuwien.ac.at/sic/PETIont#Percent">
+        <rdf:type rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PhysicalUnit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#Power -->
+
+    <owl:NamedIndividual rdf:about="http://auto.tuwien.ac.at/sic/PETIont#Power">
+        <rdf:type rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PhysicalQuantity"/>
+        <belongsToPCECategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">J</belongsToPCECategory>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://auto.tuwien.ac.at/sic/PETIont#Temperature -->
+
+    <owl:NamedIndividual rdf:about="http://auto.tuwien.ac.at/sic/PETIont#Temperature">
+        <rdf:type rdf:resource="http://auto.tuwien.ac.at/sic/PETIont#PhysicalQuantity"/>
+        <belongsToPCECategory>T</belongsToPCECategory>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.7.2018-12-02T02:23:35Z) https://github.com/owlcs/owlapi -->
+
